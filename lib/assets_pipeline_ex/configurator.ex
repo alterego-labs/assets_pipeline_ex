@@ -1,7 +1,7 @@
 require Logger
 defmodule AssetsPipelineEx.Configurator do
   @namespace :assets_pipeline_ex
-  @defaults []
+  @defaults [javascripts: []]
 
   def assets_list(:js) do
     configuration_for :javascripts
@@ -9,6 +9,7 @@ defmodule AssetsPipelineEx.Configurator do
 
   def assets_list(asset_type) do
     Logger.error "Unknown #{asset_type} asset type"
+    raise AssetsPipelineEx.UnknownAssetError, message: "Unknown asset type: #{asset_type}"
   end
 
   def configuration_for(key) do
