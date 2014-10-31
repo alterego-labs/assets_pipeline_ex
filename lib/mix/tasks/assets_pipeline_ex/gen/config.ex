@@ -13,7 +13,7 @@ defmodule Mix.Tasks.AssetsPipelineEx.Gen.Config do
   end
 
   defp create_config_file do
-    create_file "config/assets_pipeline_ex.exs", config_template
+    create_file "config/assets_pipeline_ex.exs", config_template([])
   end
 
   embed_template :config, ~S"""
