@@ -1,4 +1,9 @@
 defmodule AssetsPipelineEx do
+  alias AssetsPipelineEx.PathBuilder
+  alias AssetsPipelineEx.Reader
+  alias AssetsPipelineEx.Compilator
+  alias AssetsPipelineEx.Writer
+
   def run do
     process_javascripts
   end
@@ -14,9 +19,9 @@ defmodule AssetsPipelineEx do
 
   defp process_asset(asset) do
     asset
-    |> AssetsPipelineEx.PathBuilder.path_for(:js)
-    |> AssetsPipelineEx.Reader.content
-    |> AssetsPipelineEx.Compilator.compile
-    |> AssetsPipelineEx.Writer.write(:js)
+    |> PathBuilder.path_for(:js)
+    |> Reader.read_asset
+    |> Compilator.compile
+    |> Writer.write(:js)
   end
 end
