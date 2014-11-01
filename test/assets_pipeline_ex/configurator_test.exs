@@ -19,7 +19,11 @@ defmodule AssetsPipelineEx.ConfiguratorTest do
 
   test "success read putted value for javascripts" do
     Application.put_env @config_namespace, :javascripts, [:file]
-    assert Configurator.assets_list(:js) == [:file]
+    assets = Configurator.assets_list(:js)
+    assert Enum.count(assets) == 1
+    asset = List.first assets
+    assert asset.file == :file
+    assert asset.type == :js
     Application.delete_env @config_namespace, :javascripts
   end
 

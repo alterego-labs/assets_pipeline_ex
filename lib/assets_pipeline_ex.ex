@@ -8,15 +8,15 @@ defmodule AssetsPipelineEx do
   end
 
   defp process_assets(:js = assets_type) do
-    js_files = AssetsPipelineEx.Configurator.assets_list(assets_type)
-    Enum.each js_files, &process_file(&1, assets_type)
+    js_assets = AssetsPipelineEx.Configurator.assets_list(assets_type)
+    Enum.each js_assets, &process_asset(&1)
   end
 
-  defp process_file(file, :js = assets_type) do
-    file
-    |> AssetsPipelineEx.PathBuilder.path_for(assets_type)
+  defp process_asset(asset) do
+    asset
+    |> AssetsPipelineEx.PathBuilder.path_for(:js)
     |> AssetsPipelineEx.Reader.content
     |> AssetsPipelineEx.Compilator.compile
-    |> AssetsPipelineEx.Writer.write(assets_type)
+    |> AssetsPipelineEx.Writer.write(:js)
   end
 end

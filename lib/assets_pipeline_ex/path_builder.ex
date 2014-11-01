@@ -1,21 +1,32 @@
 defmodule AssetsPipelineEx.PathBuilder do
-  def path_for(filename, :js = asset_type) do
-    filename
-    |> to_string
-    |> apply_path_and_ext(asset_type)
+  alias AssetsPipelineEx.Asset
+
+  def asset_paths(asset) do
+    asset |> apply_base_path |> apply_new_path
   end
 
-  def path_for(_filename, asset_type) do
-    raise_unknown_asset asset_type
+  defp apply_base_path(%Asset{file: file, type: type} = asset) do
+    {path, ext} = base_path_and_ext(type)
+    base_path = path <> to_string(file) <> ext
+    %{asset | base_path: base_path}
   end
 
-  defp apply_path_and_ext(filename, asset_type) do
-    {base_path, ext} = base_path_and_ext(asset_type)
-    base_path <> filename <> ext
+  defp apply_new_path(%Asset{file: file, type: type} = asset) do
+    {path, ext} = new_path_and_ext(type)
+    new_path = path <> to_string(file) <> ext
+    %{asset | new_path: new_path}
   end
 
   defp base_path_and_ext(:js) do
     {"priv/assets/js/", ".js.coffee"}
+  end
+
+  defp base_path_and_ext(type) do
+    raise_unknown_asset type
+  end
+
+  defp new_path_and_ext(:js) do
+    {"public/assets/", ".js"}
   end
 
   defp raise_unknown_asset(asset_type) do
