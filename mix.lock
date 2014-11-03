@@ -1,0 +1,2 @@
+%{"execjs": {:git, "git://github.com/devinus/execjs.git", "81ac958a22a80e9155bd3876bb57adcde285200c", [tag: "1.1.1"]},
+  "poison": {:package, "1.1.1"}}

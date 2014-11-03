@@ -17,6 +17,7 @@ defmodule AssetsPipelineEx.Mixfile do
 
   defp deps do
     [
+      { :execjs, github: "devinus/execjs", tag: "1.1.1" }
     ]
   end
 end
