@@ -22,6 +22,6 @@ defmodule AssetsPipelineEx do
     |> PathBuilder.path_for(:js)
     |> Reader.read_asset
     |> Compilator.compile
-    |> Writer.write(:js)
+    |> Writer.write_asset
   end
 end

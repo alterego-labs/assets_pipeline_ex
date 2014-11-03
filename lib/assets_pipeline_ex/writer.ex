@@ -1,5 +1,7 @@
 defmodule AssetsPipelineEx.Writer do
-  def write(content, :js = asset_type) do
-    
+  alias AssetsPipelineEx.Asset
+
+  def write_asset(%Asset{new_content: content, new_path: path} = asset) do
+    File.write path, content, [:write, :utf8, :raw]
   end
 end
