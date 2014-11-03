@@ -28,6 +28,14 @@ mix assets_pipeline_ex.gen.config
 ```
 After that file `config/assets_pipeline_ex.exs` will be appear.
 
+## Assets compilation
+For compile all assets run next command in the shell:
+```shell
+mix assets_pipeline_ex.compile
+```
+After this all files in `priv/assets/[...]` folder will be compiled and
+placed in `assets/[...]` folder.
+
 # Acceptable pre-processors
 Now only *CoffeeScript* preprocessor is available. Javascript files
 written in coffeescript must be placed in `priv/assets/js` folder and
