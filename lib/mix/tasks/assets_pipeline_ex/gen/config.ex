@@ -3,6 +3,7 @@ defmodule Mix.Tasks.AssetsPipelineEx.Gen.Config do
   import Mix.Generator
 
   @shortdoc "Creates AssetsPipelineEx config file"
+  @recursive true
 
   @moduledoc """
   Creates AssetsPipelineEx config file

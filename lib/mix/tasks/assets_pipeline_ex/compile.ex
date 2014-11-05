@@ -3,6 +3,7 @@ defmodule Mix.Tasks.AssetsPipelineEx.Compile do
   import Mix.Generator
 
   @shortdoc "Compile assets"
+  @recursive true
 
   @moduledoc """
   Runs assets compilation
