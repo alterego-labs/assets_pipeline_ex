@@ -19,7 +19,7 @@ defmodule AssetsPipelineEx do
 
   defp process_asset(asset) do
     asset
-    |> PathBuilder.path_for(:js)
+    |> PathBuilder.asset_paths
     |> Reader.read_asset
     |> Compilator.compile
     |> Writer.write_asset

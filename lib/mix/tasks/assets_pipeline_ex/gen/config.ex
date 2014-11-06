@@ -4,12 +4,13 @@ defmodule Mix.Tasks.AssetsPipelineEx.Gen.Config do
 
   @shortdoc "Creates AssetsPipelineEx config file"
   @recursive true
+  @hidden false
 
   @moduledoc """
   Creates AssetsPipelineEx config file
   """
 
-  def run(args) do
+  def run(_args) do
     create_config_file
   end
 
@@ -18,6 +19,7 @@ defmodule Mix.Tasks.AssetsPipelineEx.Gen.Config do
   end
 
   embed_template :config, ~S"""
+  use Mix.Config
   #Specify list of compiling assets
   config :assets_pipeline_ex, :javascripts, []
   """
