@@ -24,17 +24,17 @@ Also you must add handling assets by patching cowboy router like this:
 ## Generate default config
 Next command will generate default config file:
 ```shell
-mix assets_pipeline_ex.gen.config
+mix ape.gen.config
 ```
 After that file `config/assets_pipeline_ex.exs` will be appear.
 
 ## Assets compilation
 For compile all assets run next command in the shell:
 ```shell
-mix assets_pipeline_ex.compile
+mix ape.compile
 ```
 After this all files in `priv/assets/[...]` folder will be compiled and
-placed in `assets/[...]` folder.
+placed in `public/assets/[...]` folder.
 
 # Acceptable pre-processors
 Now only *CoffeeScript* preprocessor is available. Javascript files
