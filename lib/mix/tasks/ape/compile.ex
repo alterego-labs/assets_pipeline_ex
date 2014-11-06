@@ -1,4 +1,4 @@
-defmodule Mix.Tasks.AssetsPipelineEx.Compile do
+defmodule Mix.Tasks.Ape.Compile do
   use Mix.Task
 
   @shortdoc "Compile assets"
