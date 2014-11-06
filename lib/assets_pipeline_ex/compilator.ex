@@ -14,7 +14,7 @@ defmodule AssetsPipelineEx.Compilator do
   end
 
   defp cs_source do
-    {:ok, content} = File.read "assets/coffee-script.js"
+    {:ok, content} = File.read "priv/coffee-script.js"
     content
   end
 end
