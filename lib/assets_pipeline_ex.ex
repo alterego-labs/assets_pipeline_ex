@@ -1,3 +1,4 @@
+require Logger
 defmodule AssetsPipelineEx do
   alias AssetsPipelineEx.PathBuilder
   alias AssetsPipelineEx.Reader
@@ -19,6 +20,7 @@ defmodule AssetsPipelineEx do
   end
 
   defp process_asset(asset) do
+    Logger.info "Start processing asset #{asset.file}"
     asset
     |> PathBuilder.asset_paths
     |> Reader.read_asset

@@ -1,7 +1,9 @@
+require Logger
 defmodule AssetsPipelineEx.PathBuilder do
   alias AssetsPipelineEx.Asset
 
   def asset_paths(asset) do
+    Logger.info "Applying paths for asset #{asset.file}"
     asset |> apply_base_path |> apply_new_path
   end
 

@@ -1,7 +1,9 @@
+require Logger
 defmodule AssetsPipelineEx.Compilator do
   alias AssetsPipelineEx.Asset
 
-  def compile(%Asset{base_content: content} = asset) do
+  def compile(%Asset{base_content: content, file: file} = asset) do
+    Logger.info "Compiling asset #{file}"
     %{asset | new_content: coffeescript_compile(content)}
   end
 
