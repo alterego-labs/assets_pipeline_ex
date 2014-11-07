@@ -3,6 +3,7 @@ defmodule AssetsPipelineEx do
   alias AssetsPipelineEx.Reader
   alias AssetsPipelineEx.Compilator
   alias AssetsPipelineEx.Writer
+  alias AssetsPipelineEx.Configurator
 
   def run do
     process_javascripts
@@ -13,8 +14,8 @@ defmodule AssetsPipelineEx do
   end
 
   defp process_assets(:js = assets_type) do
-    js_assets = AssetsPipelineEx.Configurator.assets_list(assets_type)
-    Enum.each js_assets, &process_asset(&1)
+    Configurator.assets_list(assets_type)
+    |> Enum.each &process_asset(&1)
   end
 
   defp process_asset(asset) do

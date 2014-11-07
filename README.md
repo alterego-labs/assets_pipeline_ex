@@ -21,6 +21,11 @@ Also you must add handling assets by patching cowboy router like this:
 
 # Tasks
 
+## Initialization
+```shell
+mix ape.init
+```
+
 ## Generate default config
 Next command will generate default config file:
 ```shell
